@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
 use Illuminate\Foundation\Application;
@@ -15,12 +16,7 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/', function () {
-    return Inertia::render('homepage', [
-        'title' => 'Laravel With React',
-        'description' => 'Wecoma Laravelna reactna'
-    ]);
-});
+Route::get('/', [FilmController::class, 'index']);
 
 Route::get('/test', [TestController::class, 'index']);
 
