@@ -40,6 +40,7 @@ return new class extends Migration
             $table->string('schedule_id'); // Definisikan kolom schedule_id sebagai string
             $table->foreign('schedule_id')->references('schedule_id')->on('schedules')->onDelete('cascade'); // Foreign key
             $table->decimal('price', 8, 2); // Harga tiket
+            $table->integer('qty'); //Quantity Ticket
             $table->integer('rating')->nullable(); // Rating film setelah pembelian
             $table->timestamps();
         });
