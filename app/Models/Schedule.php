@@ -6,23 +6,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Movie extends Model
+class Schedule extends Model
 {
     use HasFactory;
 
-    protected $table = 'movies';
+    protected $table = 'schedules';
 
-    public static function generateMovieId(): string
+    public static function generateScheduleId(): string
     {
-        $prefix = 'MV-';
+        $prefix = 'SCD-';
         $currentYearMonth = now()->format('Ym');
 
-        $lastMovie = self::where('movie_id', 'LIKE', "{$prefix}{$currentYearMonth}%")
-            ->orderBy('movie_id', 'desc')
+        $lastSchedule = self::where('schedule_id', 'LIKE', "{$prefix}{$currentYearMonth}%")
+            ->orderBy('schedule_id', 'desc')
             ->first();
 
-        if ($lastMovie) {
-            $lastId = (int) Str::substr($lastMovie->movie_id, -4);
+        if ($lastSchedule) {
+            $lastId = (int) Str::substr($lastSchedule->schedule_id, -4);
             $newId = $lastId + 1;
         } else {
             $newId = 1;

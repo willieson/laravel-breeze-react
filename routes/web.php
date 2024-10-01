@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,7 @@ use Inertia\Inertia;
 // });
 
 
-Route::get('/', function () {
-    return Inertia::render('Homepage');
-});
+Route::get('/', [MovieController::class, 'index']);
 
 
 Route::get('/welcome', function () {
