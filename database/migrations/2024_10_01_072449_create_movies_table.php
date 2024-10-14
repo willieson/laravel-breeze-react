@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('genre');
             $table->integer('duration'); // Durasi dalam menit
-            $table->string('poster'); // URL poster
+            $table->string('poster')->default('posters/default.jpg'); // URL poster
             $table->timestamps();
         });
 

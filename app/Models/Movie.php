@@ -10,6 +10,31 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'movie_id',
+        'title',
+        'description',
+        'genre',
+        'duration',
+        'poster',
+    ];
+
+    // Tentukan primary key yang digunakan
+    protected $primaryKey = 'movie_id';
+
+    // Jika kolom movie_id bukan incrementing (jika tipe bukan integer), set false
+    public $incrementing = false;
+
+    // Jika tipe primary key bukan integer, tambahkan ini
+    protected $keyType = 'string'; // atau sesuai tipe data kolom movie_id
+
+
+    public function schedules()
+    {
+        //Eloquent ORM
+        return $this->hasMany(Schedule::class);
+    }
+
     protected $table = 'movies';
 
     public static function generateMovieId(): string

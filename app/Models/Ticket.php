@@ -10,6 +10,24 @@ class Ticket extends Model
 {
     use HasFactory;
 
+    public function user()
+    {
+        //Eloquent ORM
+        return $this->belongsTo(User::class);
+    }
+
+    public function schedule()
+    {
+        //Eloquent ORM
+        return $this->belongsTo(Schedule::class);
+    }
+
+    public function payment()
+    {
+        //Eloquent ORM
+        return $this->hasOne(Payment::class);
+    }
+
     protected $table = 'tickets';
 
     public static function generateTicketId(): string

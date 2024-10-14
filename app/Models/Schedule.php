@@ -10,6 +10,18 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    public function movie()
+    {
+        //Eloquent ORM
+        return $this->belongsTo(Movie::class);
+    }
+
+    public function tickets()
+    {
+        //Eloquent ORM
+        return $this->hasMany(Ticket::class);
+    }
+
     protected $table = 'schedules';
 
     public static function generateScheduleId(): string

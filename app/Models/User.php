@@ -11,6 +11,12 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function tickets()
+    {
+        //Eloquent ORM
+        return $this->hasMany(Ticket::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -10,6 +10,12 @@ class Payment extends Model
 {
     use HasFactory;
 
+    public function ticket()
+    {
+        //Eloquent ORM
+        return $this->belongsTo(Ticket::class);
+    }
+
     protected $table = 'payments';
 
     public static function generatePaymentId(): string
